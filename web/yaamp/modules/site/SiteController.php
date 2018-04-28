@@ -852,8 +852,8 @@ class SiteController extends CommonController
 		$coin = getdbo('db_coins', getiparam('id'));
 
 		$coin->action = 4;
-		$coin->enable = false;
-		$coin->auto_ready = false;
+		$coin->enable = true;
+		$coin->auto_ready = true;
 		$coin->installed = true;
 		$coin->connections = 0;
 		$coin->save();
@@ -869,7 +869,7 @@ class SiteController extends CommonController
 
 		$coin->action = 1;
 		$coin->enable = true;
-		$coin->auto_ready = false;
+		$coin->auto_ready = true;
 		$coin->installed = true;
 		$coin->connections = 0;
 		$coin->save();
