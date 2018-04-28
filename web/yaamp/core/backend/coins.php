@@ -163,7 +163,7 @@ function BackendCoinsUpdate()
 				if(isset($template['bits']))
 				{
 					$target = decode_compact($template['bits']);
-$					$coin->difficulty = target_to_diff($target);
+p$					$coin->difficulty = target_to_diff($target);
 				}
 			}
 
@@ -218,7 +218,7 @@ $					$coin->difficulty = target_to_diff($target);
 			{
 				$wi = $remote->walletinfo();
 				$coin->auto_ready = ($coin->connections > 0 && arraySafeVal($wi,"daemonconnected"));
-				debuglog($coin->symbol . " validating auto_ready with " . $coin->connections . " connections" );
+				debuglog($coin->symbol . " validating auto_ready with " . $coin->connections . " peer connections" );
 				if ($coin->auto_ready && arraySafeVal($wi,"unlocked",false) == false) {
 					debuglog($coin->symbol." wallet is not unlocked!");
 				}
