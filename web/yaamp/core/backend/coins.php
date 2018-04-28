@@ -163,7 +163,7 @@ function BackendCoinsUpdate()
 				if(isset($template['bits']))
 				{
 					$target = decode_compact($template['bits']);
-					$coin->difficulty = target_to_diff($target);
+$					$coin->difficulty = target_to_diff($target);
 				}
 			}
 
@@ -183,6 +183,7 @@ function BackendCoinsUpdate()
 					if(isset($template['bits']))
 					{
 						$target = decode_compact($template['bits']);
+
 						$coin->difficulty = target_to_diff($target);
 					}
 				} else {
@@ -213,10 +214,11 @@ function BackendCoinsUpdate()
 				}
 			}
 
-			else if ($coin->rpcencoding == 'DCR')
+			else if ($coin->symbol == 'DCR' || $coin->rpcencoding == 'DCR')
 			{
 				$wi = $remote->walletinfo();
 				$coin->auto_ready = ($coin->connections > 0 && arraySafeVal($wi,"daemonconnected"));
+				debuglog($coin->symbol . " validating auto_ready with connections = " . $coin->connections );
 				if ($coin->auto_ready && arraySafeVal($wi,"unlocked",false) == false) {
 					debuglog($coin->symbol." wallet is not unlocked!");
 				}
